@@ -2,7 +2,8 @@ import { useState } from "react";
 import EducationEdit from "./components/EducationEdit";
 import WorkEdit from "./components/WorkEdit";
 import PersonalEdit from "./components/PersonalEdit";
-import CV from "./components/CV/CVtop";
+import CVtop from "./components/CV/CVtop";
+import CVbottom from "./components/CV/CVbottom";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,15 @@ function App() {
     linkedin: "",
     address: "",
   });
+
+  const [selectedImage, setSelectedImage] = useState(null);
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    setSelectedImage(URL.createObjectURL(file));
+  };
+  const openFileInput = () => {
+    document.getElementById("file-input").click();
+  };
 
   const [educations, setEducations] = useState([]);
   const [educationFormVisible, setEducationFormVisible] = useState(false);
@@ -223,9 +233,31 @@ function App() {
           editWorks={editWorks}
           deleteWorks={deleteWorks}
         />
+        <div>
+          <div>Upload Image</div>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+            style={{ display: "none" }}
+            id="file-input"
+          />
+          <button onClick={openFileInput} className="img-button">
+            Choose Image
+          </button>
+          {selectedImage && (
+            <img
+              src={selectedImage}
+              alt="User's Image"
+              style={{ width: "200px", height: "200px" }}
+            />
+          )}
+        </div>
       </div>
       <div className="cv-display-section">
-        <CV personalInfo={personalInfo} />
+        <div className="paper">
+          <CVtop personalInfo={personalInfo} />
+        </div>
       </div>
     </>
   );

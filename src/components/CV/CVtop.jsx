@@ -10,7 +10,7 @@ const ContactInfo = ({ src, alt, section, info }) => {
   );
 };
 
-const CV = ({ personalInfo }) => {
+const CVtop = ({ personalInfo }) => {
   return (
     <div className="paper">
       <div className="paper-top">
@@ -51,4 +51,4 @@ const CV = ({ personalInfo }) => {
   );
 };
 
-export default CV;
+export default CVtop;
