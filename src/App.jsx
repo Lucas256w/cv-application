@@ -240,7 +240,7 @@ function App() {
           deleteWorks={deleteWorks}
         />
         <div>
-          <div>Upload Image</div>
+          <div className="card">Upload Image</div>
           <input
             type="file"
             accept="image/*"
