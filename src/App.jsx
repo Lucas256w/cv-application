@@ -4,6 +4,7 @@ import WorkEdit from "./components/WorkEdit";
 import PersonalEdit from "./components/PersonalEdit";
 import CVtop from "./components/CV/CVtop";
 import CVbottom from "./components/CV/CVbottom";
+import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 
 function App() {
@@ -18,7 +19,9 @@ function App() {
     address: "",
   });
 
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(
+    "../src/assets/placeholder-profile.png",
+  );
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     setSelectedImage(URL.createObjectURL(file));
@@ -63,6 +66,7 @@ function App() {
       });
       setEducationFormVisible(false);
     } else {
+      setWorkFormVisible(false);
       setEducationFormVisible(true);
     }
   };
@@ -81,6 +85,7 @@ function App() {
       });
       setWorkFormVisible(false);
     } else {
+      setEducationFormVisible(false);
       setWorkFormVisible(true);
     }
   };
@@ -125,10 +130,10 @@ function App() {
       currentWork.summary
     ) {
       if (currentWork.editIndex === -1) {
-        // Add a new education
+        // Add a new work
         setWorks([...works, { ...currentWork }]);
       } else {
-        // Edit an existing education
+        // Edit an existing work
         const updatedWorks = [...works];
         updatedWorks[currentWork.editIndex] = {
           ...currentWork,
@@ -203,20 +208,52 @@ function App() {
   };
 
   const handleEducationChange = (event, what) => {
-    setCurrentEducation({ ...currentEducation, [what]: event.target.value });
+    setCurrentEducation({
+      ...currentEducation,
+      [what]: event.target.value,
+      id: uuidv4(),
+    });
   };
 
   const handleWorkChange = (event, what) => {
-    setCurrentWork({ ...currentWork, [what]: event.target.value });
+    setCurrentWork({
+      ...currentWork,
+      [what]: event.target.value,
+      id: uuidv4(),
+    });
   };
 
   return (
     <>
       <div className="edit-section">
+        <div style={{ width: "auto" }} className="card">
+          <button
+            style={{ color: "#A91E15", fontWeight: "600" }}
+            className="add-new-btn"
+          >
+            Clear Content
+          </button>
+        </div>
+
         <PersonalEdit
           personalInfo={personalInfo}
           handlePersonalInfoChange={handlePersonalInfoChange}
         />
+
+        <div className="card">
+          <h1 className="card-title">Upload Profile Picture</h1>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+            style={{ display: "none" }}
+            id="file-input"
+          />
+          <button onClick={openFileInput} className="add-new-btn">
+            Choose Image
+          </button>
+        </div>
+
         <EducationEdit
           educationFormVisible={educationFormVisible}
           toggleEducationForm={toggleEducationForm}
@@ -228,6 +265,7 @@ function App() {
           editEducations={editEducations}
           deleteEducations={deleteEducations}
         />
+
         <WorkEdit
           workFormVisible={workFormVisible}
           toggleWorkForm={toggleWorkForm}
@@ -239,19 +277,6 @@ function App() {
           editWorks={editWorks}
           deleteWorks={deleteWorks}
         />
-        <div>
-          <div className="card">Upload Image</div>
-          <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageUpload}
-            style={{ display: "none" }}
-            id="file-input"
-          />
-          <button onClick={openFileInput} className="img-button">
-            Choose Image
-          </button>
-        </div>
       </div>
       <div className="cv-display-section">
         <div className="paper">

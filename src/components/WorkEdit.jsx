@@ -18,7 +18,7 @@ const WorkEdit = ({
         </button>
       )}
       {workFormVisible ? (
-        <div>
+        <div className="form">
           <label htmlFor="companyName">Company Name</label>
           <input
             type="text"
@@ -72,19 +72,33 @@ const WorkEdit = ({
             onChange={(e) => handleWorkChange(e, "summary")}
           ></textarea>
 
-          <button onClick={addOrEditWork}>Submit</button>
-          <button onClick={cancelWorkForm}>Cancel</button>
+          <div className="submit-cancel-btn-container">
+            <button className="form-btn" onClick={addOrEditWork}>
+              Submit
+            </button>
+            <button className="form-btn" onClick={cancelWorkForm}>
+              Cancel
+            </button>
+          </div>
         </div>
       ) : (
-        <ul>
+        <>
           {works.map((work, index) => (
-            <div key={index}>
-              {work.name}
-              <button onClick={() => editWorks(index)}>Edit</button>
-              <button onClick={() => deleteWorks(index)}>Delete</button>
+            <div className="list-item-container" key={index}>
+              <div>{work.name}</div>
+              <img
+                className="list-edits-icon"
+                src="../src/assets/edit.svg"
+                onClick={() => editWorks(index)}
+              />
+              <img
+                className="list-edits-icon"
+                src="../src/assets/delete.svg"
+                onClick={() => deleteWorks(index)}
+              />
             </div>
           ))}
-        </ul>
+        </>
       )}
     </div>
   );

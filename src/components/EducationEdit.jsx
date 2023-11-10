@@ -18,7 +18,7 @@ const EducationEdit = ({
         </button>
       )}
       {educationFormVisible ? (
-        <div>
+        <div className="form">
           <label htmlFor="instituteName">Institute Name</label>
           <input
             type="text"
@@ -64,19 +64,33 @@ const EducationEdit = ({
             onChange={(e) => handleEducationChange(e, "location")}
           />
 
-          <button onClick={addOrEditEducation}>Submit</button>
-          <button onClick={cancelEducationForm}>Cancel</button>
+          <div className="submit-cancel-btn-container">
+            <button className="form-btn" onClick={addOrEditEducation}>
+              Submit
+            </button>
+            <button className="form-btn" onClick={cancelEducationForm}>
+              Cancel
+            </button>
+          </div>
         </div>
       ) : (
-        <ul>
+        <>
           {educations.map((education, index) => (
-            <div key={index}>
-              {education.name}
-              <button onClick={() => editEducations(index)}>Edit</button>
-              <button onClick={() => deleteEducations(index)}>Delete</button>
+            <div className="list-item-container" key={index}>
+              <div>{education.name}</div>
+              <img
+                className="list-edits-icon"
+                src="../src/assets/edit.svg"
+                onClick={() => editEducations(index)}
+              />
+              <img
+                className="list-edits-icon"
+                src="../src/assets/delete.svg"
+                onClick={() => deleteEducations(index)}
+              />
             </div>
           ))}
-        </ul>
+        </>
       )}
     </div>
   );

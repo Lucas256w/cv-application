@@ -145,6 +145,7 @@ html {
 
 input[type="text"],
 textarea {
+  padding: 5px;
   border: none;
   background-color: var(--gray);
   border-radius: 10px;
@@ -172,12 +173,65 @@ textarea {
 }
 
 .add-new-btn {
+  align-self: center;
   background-color: var(--white);
   border: 5px solid var(--gray);
   border-radius: 50px;
   font-family: inherit;
   width: max-content;
   color: var(--black);
+}
+
+.add-new-btn:hover {
+  cursor: pointer;
+  filter: brightness(90%);
+}
+
+.form {
+  display: grid;
+}
+
+.submit-cancel-btn-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+.form-btn {
+  background-color: var(--black);
+  font-size: 1.2rem;
+  font-family: inherit;
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+}
+
+.form-btn:hover {
+  filter: brightness(90%);
+  cursor: pointer;
+}
+
+.list-item-container {
+  margin-top: 10px;
+  padding: 5px;
+  font-size: 1.2rem;
+  border: 2px solid var(--black);
+  border-radius: 10px;
+  font-weight: 600;
+  align-self: center;
+  display: grid;
+  width: 200px;
+  grid-template-columns: 1fr 20px 20px;
+  align-items: center;
+}
+
+.list-edits-icon {
+  height: 20px;
+}
+
+.list-edits-icon:hover {
+  cursor: pointer;
 }
 
 /* CV DISPLAY SIDE */
@@ -189,10 +243,11 @@ textarea {
 }
 
 .paper {
-  max-width: 612px;
-  max-height: 792px;
-  min-width: 612px;
-  min-height: 792px;
+  overflow: hidden;
+  max-width: calc(2550px * 0.3);
+  max-height: calc(3300px * 0.3);
+  min-width: calc(2550px * 0.3);
+  min-height: calc(3300px * 0.3);
   background-color: var(--white);
 }
 
@@ -270,8 +325,12 @@ textarea {
   font-weight: 600;
 }
 
+.education-content {
+  margin-top: 20px;
+}
+
 .education-year-location {
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   display: flex;
   justify-content: space-between;
 }

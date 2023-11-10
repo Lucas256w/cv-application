@@ -41,7 +41,7 @@ const CVbottom = ({ educations, works, selectedImage, personalInfo }) => {
         <div className="big-title">EDUCATION</div>
         {educations.map((education) => (
           <EducationInfo
-            key={education.editIndex}
+            key={education.id}
             start={education["start date"]}
             end={education["end date"]}
             name={education.name}
@@ -60,7 +60,7 @@ const CVbottom = ({ educations, works, selectedImage, personalInfo }) => {
           <div className="big-title">WORK EXPERIENCE</div>
           {works.map((work) => (
             <WorkInfo
-              key={work.editIndex}
+              key={work.id}
               start={work["start date"]}
               end={work["end date"]}
               name={work.name}

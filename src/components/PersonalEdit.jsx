@@ -41,8 +41,8 @@ const PersonalEdit = ({ personalInfo, handlePersonalInfoChange }) => {
           type="text"
           id="phone"
           placeholder="Phone"
-          value={personalInfo.phone}
-          onChange={(e) => handlePersonalInfoChange(e, "phone")}
+          value={personalInfo.number}
+          onChange={(e) => handlePersonalInfoChange(e, "number")}
         />
       </div>
 
