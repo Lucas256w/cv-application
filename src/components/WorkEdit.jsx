@@ -10,10 +10,10 @@ const WorkEdit = ({
   deleteWorks,
 }) => {
   return (
-    <div>
-      <h1>Work List</h1>
+    <div className="card">
+      <h1>Work Experience</h1>
       {!workFormVisible && (
-        <button onClick={toggleWorkForm}>Add New Work</button>
+        <button onClick={toggleWorkForm}>Add New Work Experience</button>
       )}
       {workFormVisible ? (
         <div>

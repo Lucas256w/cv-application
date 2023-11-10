@@ -10,7 +10,7 @@ const EducationEdit = ({
   deleteEducations,
 }) => {
   return (
-    <div>
+    <div className="card">
       <h1>Education List</h1>
       {!educationFormVisible && (
         <button onClick={toggleEducationForm}>Add New Education</button>

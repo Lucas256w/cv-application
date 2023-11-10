@@ -1,0 +1,184 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* GENERAL SETTINGS */
+
+:root {
+  --white: #ffffff;
+  --gray: #f3f4f9;
+  --black: #202533;
+  --container-width: 1200px;
+  --border-radius: 6px;
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  --spacing-xl: 40px;
+}
+
+#root {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--gray);
+  color: var(--black);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* EDIT SIDE */
+
+/* CV DISPLAY SIDE */
+
+.cv-display-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-xl);
+}
+
+.paper {
+  max-width: 612px;
+  max-height: 792px;
+  min-width: 612px;
+  min-height: 792px;
+  background-color: var(--white);
+}
+
+/* CV TOP */
+
+.paper-top {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+}
+
+.contact-container {
+  margin: var(--spacing-xl) 0 0 var(--spacing-xl);
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  align-items: center;
+}
+
+.contact-title {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.contact-info {
+  font-size: 0.6rem;
+}
+
+.contact-icon {
+  height: 20px;
+  padding-right: 10px;
+  border-right: 5px double var(--black);
+}
+
+.name-title-container {
+  padding: var(--spacing-xl);
+  background-color: var(--black);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.first-name,
+.last-name {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.name-title {
+  border-top: 1px solid var(--white);
+  padding: 5px;
+  border-bottom: 1px solid var(--white);
+  font-weight: 200;
+}

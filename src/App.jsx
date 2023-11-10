@@ -1,8 +1,21 @@
 import { useState } from "react";
 import EducationEdit from "./components/EducationEdit";
 import WorkEdit from "./components/WorkEdit";
+import PersonalEdit from "./components/PersonalEdit";
+import CV from "./components/CV/CVtop";
+import "./App.css";
 
 function App() {
+  const [personalInfo, setPersonalInfo] = useState({
+    firstName: "",
+    lastName: "",
+    title: "",
+    number: "",
+    email: "",
+    linkedin: "",
+    address: "",
+  });
+
   const [educations, setEducations] = useState([]);
   const [educationFormVisible, setEducationFormVisible] = useState(false);
   const [currentEducation, setCurrentEducation] = useState({
@@ -169,6 +182,10 @@ function App() {
     setWorkFormVisible(false);
   };
 
+  const handlePersonalInfoChange = (event, what) => {
+    setPersonalInfo({ ...personalInfo, [what]: event.target.value });
+  };
+
   const handleEducationChange = (event, what) => {
     setCurrentEducation({ ...currentEducation, [what]: event.target.value });
   };
@@ -178,30 +195,39 @@ function App() {
   };
 
   return (
-    <div>
-      <EducationEdit
-        educationFormVisible={educationFormVisible}
-        toggleEducationForm={toggleEducationForm}
-        currentEducation={currentEducation}
-        handleEducationChange={handleEducationChange}
-        addOrEditEducation={addOrEditEducation}
-        cancelEducationForm={cancelEducationForm}
-        educations={educations}
-        editEducations={editEducations}
-        deleteEducations={deleteEducations}
-      />
-      <WorkEdit
-        workFormVisible={workFormVisible}
-        toggleWorkForm={toggleWorkForm}
-        currentWork={currentWork}
-        handleWorkChange={handleWorkChange}
-        addOrEditWork={addOrEditWork}
-        cancelWorkForm={cancelWorkForm}
-        works={works}
-        editWorks={editWorks}
-        deleteWorks={deleteWorks}
-      />
-    </div>
+    <>
+      <div className="edit-section">
+        <PersonalEdit
+          personalInfo={personalInfo}
+          handlePersonalInfoChange={handlePersonalInfoChange}
+        />
+        <EducationEdit
+          educationFormVisible={educationFormVisible}
+          toggleEducationForm={toggleEducationForm}
+          currentEducation={currentEducation}
+          handleEducationChange={handleEducationChange}
+          addOrEditEducation={addOrEditEducation}
+          cancelEducationForm={cancelEducationForm}
+          educations={educations}
+          editEducations={editEducations}
+          deleteEducations={deleteEducations}
+        />
+        <WorkEdit
+          workFormVisible={workFormVisible}
+          toggleWorkForm={toggleWorkForm}
+          currentWork={currentWork}
+          handleWorkChange={handleWorkChange}
+          addOrEditWork={addOrEditWork}
+          cancelWorkForm={cancelWorkForm}
+          works={works}
+          editWorks={editWorks}
+          deleteWorks={deleteWorks}
+        />
+      </div>
+      <div className="cv-display-section">
+        <CV personalInfo={personalInfo} />
+      </div>
+    </>
   );
 }
 
