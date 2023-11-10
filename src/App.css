@@ -238,7 +238,8 @@ textarea {
 
 .cv-display-section {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding: var(--spacing-xl);
 }
 
@@ -347,6 +348,10 @@ textarea {
 .right-container {
   padding: var(--spacing-lg);
   padding-right: var(--spacing-xl);
+}
+
+.work-content {
+  margin-top: var(--spacing-md);
 }
 
 .profile-summary,

@@ -4,20 +4,12 @@ import WorkEdit from "./components/WorkEdit";
 import PersonalEdit from "./components/PersonalEdit";
 import CVtop from "./components/CV/CVtop";
 import CVbottom from "./components/CV/CVbottom";
+import exampleData from "./example-data";
 import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 
 function App() {
-  const [personalInfo, setPersonalInfo] = useState({
-    firstName: "",
-    lastName: "",
-    title: "",
-    number: "",
-    email: "",
-    linkedin: "",
-    summary: "",
-    address: "",
-  });
+  const [personalInfo, setPersonalInfo] = useState(exampleData.personalInfo);
 
   const [selectedImage, setSelectedImage] = useState(
     "../src/assets/placeholder-profile.png",
@@ -30,7 +22,7 @@ function App() {
     document.getElementById("file-input").click();
   };
 
-  const [educations, setEducations] = useState([]);
+  const [educations, setEducations] = useState(exampleData.educations);
   const [educationFormVisible, setEducationFormVisible] = useState(false);
   const [currentEducation, setCurrentEducation] = useState({
     name: "",
@@ -41,7 +33,7 @@ function App() {
     editIndex: -1,
   });
 
-  const [works, setWorks] = useState([]);
+  const [works, setWorks] = useState(exampleData.works);
   const [workFormVisible, setWorkFormVisible] = useState(false);
   const [currentWork, setCurrentWork] = useState({
     name: "",
@@ -52,6 +44,41 @@ function App() {
     summary: "",
     editIndex: -1,
   });
+
+  const clearContent = () => {
+    setPersonalInfo({
+      firstName: "",
+      lastName: "",
+      title: "",
+      number: "",
+      email: "",
+      linkedin: "",
+      summary: "",
+      address: "",
+    });
+    setSelectedImage("../src/assets/placeholder-profile.png");
+    setEducations([]);
+    setEducationFormVisible(false);
+    setCurrentEducation({
+      name: "",
+      degree: "",
+      "start date": "",
+      "end date": "",
+      location: "",
+      editIndex: -1,
+    });
+    setWorks([]);
+    setWorkFormVisible(false);
+    setCurrentWork({
+      name: "",
+      position: "",
+      "start date": "",
+      "end date": "",
+      location: "",
+      summary: "",
+      editIndex: -1,
+    });
+  };
 
   const toggleEducationForm = () => {
     if (educationFormVisible) {
@@ -226,15 +253,6 @@ function App() {
   return (
     <>
       <div className="edit-section">
-        <div style={{ width: "auto" }} className="card">
-          <button
-            style={{ color: "#A91E15", fontWeight: "600" }}
-            className="add-new-btn"
-          >
-            Clear Content
-          </button>
-        </div>
-
         <PersonalEdit
           personalInfo={personalInfo}
           handlePersonalInfoChange={handlePersonalInfoChange}
@@ -287,6 +305,15 @@ function App() {
             selectedImage={selectedImage}
             personalInfo={personalInfo}
           />
+        </div>
+        <div style={{ width: "auto", marginTop: "16px" }} className="card">
+          <button
+            onClick={clearContent}
+            style={{ color: "#A91E15", fontWeight: "600" }}
+            className="add-new-btn"
+          >
+            Clear Content
+          </button>
         </div>
       </div>
     </>

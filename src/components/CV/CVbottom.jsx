@@ -24,7 +24,7 @@ const WorkInfo = ({ start, end, name, position, location, summary }) => {
       </div>
       <div className="work-name-location">
         <div className="work-name">{name}</div>
-        <div className="work-year">{location}</div>
+        <div className="work-location">{location}</div>
       </div>
       <div className="work-summary">{summary}</div>
     </div>
