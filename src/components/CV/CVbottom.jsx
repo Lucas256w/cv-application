@@ -1,50 +1,75 @@
-const ContactInfo = ({ src, alt, section, info }) => {
+const EducationInfo = ({ start, end, name, degree, location }) => {
   return (
-    <div className="contact">
-      <img src={src} alt={alt} className="contact-icon" />
-      <div className="contact-title-info">
-        <div className="contact-title">{section}</div>
-        <div className="contact-info">{info}</div>
+    <div className="education-content">
+      <div className="education-year-location">
+        <div className="education-year">
+          {start} - {end}
+        </div>
+        <div className="education-location">{location}</div>
       </div>
+      <div className="degree-name">{degree}</div>
+      <div className="institute-name">{name}</div>
     </div>
   );
 };
 
-const CVbottom = ({ personalInfo, selectedImage }) => {
+const WorkInfo = ({ start, end, name, position, location, summary }) => {
+  return (
+    <div className="work-content">
+      <div className="work-position-year">
+        <div className="work-position">{position}</div>
+        <div className="work-year">
+          {start} - {end}
+        </div>
+      </div>
+      <div className="work-name-location">
+        <div className="work-name">{name}</div>
+        <div className="work-year">{location}</div>
+      </div>
+      <div className="work-summary">{summary}</div>
+    </div>
+  );
+};
+
+const CVbottom = ({ educations, works, selectedImage, personalInfo }) => {
   return (
     <div className="paper-bottom">
       <div className="left-container">
         {selectedImage && (
-          <img
-            src={selectedImage}
-            alt="User's Image"
-            style={{ width: "200px", height: "200px" }}
-          />
+          <img className="user-image" src={selectedImage} alt="User's Image" />
         )}
-        <ContactInfo
-          src="../src/assets/email.svg"
-          alt="email icon"
-          section="EMAIL"
-          info={personalInfo.email}
-        />
-        <ContactInfo
-          src="../src/assets/linkedin.svg"
-          alt="linkedin icon"
-          section="LINKEDIN"
-          info={personalInfo.linkedin}
-        />
-        <ContactInfo
-          src="../src/assets/address.svg"
-          alt="address icon"
-          section="ADDRESS"
-          info={personalInfo.address}
-        />
+        <div className="big-title">EDUCATION</div>
+        {educations.map((education) => (
+          <EducationInfo
+            key={education.editIndex}
+            start={education["start date"]}
+            end={education["end date"]}
+            name={education.name}
+            degree={education.degree}
+            location={education.location}
+          />
+        ))}
       </div>
 
-      <div className="name-title-container">
-        <div className="first-name">{personalInfo.firstName}</div>
-        <div className="last-name">{personalInfo.lastName}</div>
-        <div className="name-title">{personalInfo.title}</div>
+      <div className="right-container">
+        <div className="profile-summary-container">
+          <div className="big-title">PROFILE SUMMARY</div>
+          <div className="profile-summary"> {personalInfo.summary}</div>
+        </div>
+        <div className="work-experience">
+          <div className="big-title">WORK EXPERIENCE</div>
+          {works.map((work) => (
+            <WorkInfo
+              key={work.editIndex}
+              start={work["start date"]}
+              end={work["end date"]}
+              name={work.name}
+              position={work.position}
+              location={work.location}
+              summary={work.summary}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -14,6 +14,7 @@ function App() {
     number: "",
     email: "",
     linkedin: "",
+    summary: "",
     address: "",
   });
 
@@ -45,6 +46,7 @@ function App() {
     "start date": "",
     "end date": "",
     location: "",
+    summary: "",
     editIndex: -1,
   });
 
@@ -74,6 +76,7 @@ function App() {
         "start date": "",
         "end date": "",
         location: "",
+        summary: "",
         editIndex: -1,
       });
       setWorkFormVisible(false);
@@ -118,7 +121,8 @@ function App() {
       currentWork.position &&
       currentWork["start date"] &&
       currentWork["end date"] &&
-      currentWork.location
+      currentWork.location &&
+      currentWork.summary
     ) {
       if (currentWork.editIndex === -1) {
         // Add a new education
@@ -138,6 +142,7 @@ function App() {
         "start date": "",
         "end date": "",
         location: "",
+        summary: "",
         editIndex: -1,
       });
       setWorkFormVisible(false);
@@ -187,6 +192,7 @@ function App() {
       "start date": "",
       "end date": "",
       location: "",
+      summary: "",
       editIndex: -1,
     });
     setWorkFormVisible(false);
@@ -245,18 +251,17 @@ function App() {
           <button onClick={openFileInput} className="img-button">
             Choose Image
           </button>
-          {selectedImage && (
-            <img
-              src={selectedImage}
-              alt="User's Image"
-              style={{ width: "200px", height: "200px" }}
-            />
-          )}
         </div>
       </div>
       <div className="cv-display-section">
         <div className="paper">
           <CVtop personalInfo={personalInfo} />
+          <CVbottom
+            educations={educations}
+            works={works}
+            selectedImage={selectedImage}
+            personalInfo={personalInfo}
+          />
         </div>
       </div>
     </>

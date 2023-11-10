@@ -182,3 +182,67 @@ video {
   border-bottom: 1px solid var(--white);
   font-weight: 200;
 }
+
+/* CV bottom */
+
+.paper-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+}
+
+.left-container {
+  padding-left: var(--spacing-xl);
+}
+
+.user-image {
+  width: 100%;
+}
+
+.big-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.education-year-location {
+  font-size: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.degree-name,
+.work-position {
+  font-weight: 600;
+}
+
+.institute-name {
+  font-size: 0.7rem;
+}
+
+.right-container {
+  padding: var(--spacing-lg);
+  padding-right: var(--spacing-xl);
+}
+
+.profile-summary,
+.work-summary {
+  font-size: 0.7rem;
+}
+
+.work-experience {
+  margin-top: var(--spacing-xl);
+}
+
+.work-position-year {
+  display: flex;
+  justify-content: space-between;
+}
+
+.work-name-location {
+  display: flex;
+  justify-content: space-between;
+}
+
+.work-name,
+.work-location {
+  font-size: 0.8rem;
+}

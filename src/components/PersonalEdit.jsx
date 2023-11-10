@@ -5,7 +5,7 @@ const PersonalEdit = ({ personalInfo, handlePersonalInfoChange }) => {
       <input
         type="text"
         placeholder="First Name"
-        value={personalInfo.name}
+        value={personalInfo.ame}
         onChange={(e) => handlePersonalInfoChange(e, "firstName")}
       />
       <input
@@ -44,6 +44,14 @@ const PersonalEdit = ({ personalInfo, handlePersonalInfoChange }) => {
         value={personalInfo.address}
         onChange={(e) => handlePersonalInfoChange(e, "address")}
       />
+      <textarea
+        cols="30"
+        rows="10"
+        type="text"
+        placeholder="Summary"
+        value={personalInfo.summary}
+        onChange={(e) => handlePersonalInfoChange(e, "summary")}
+      ></textarea>
     </div>
   );
 };

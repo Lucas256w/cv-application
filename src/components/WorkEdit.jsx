@@ -47,6 +47,11 @@ const WorkEdit = ({
             value={currentWork.location}
             onChange={(e) => handleWorkChange(e, "location")}
           />
+          <textarea
+            placeholder="Summary"
+            value={currentWork.summary}
+            onChange={(e) => handleWorkChange(e, "summary")}
+          ></textarea>
           <button onClick={addOrEditWork}>Submit</button>
           <button onClick={cancelWorkForm}>Cancel</button>
         </div>
