@@ -109,8 +109,8 @@ html {
 #root {
   font-family: "Poppins", sans-serif;
   color: var(--black);
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
+  justify-content: center;
 }
 
 /* EDIT SIDE */
@@ -123,6 +123,10 @@ html {
   gap: var(--spacing-xl);
 }
 
+.edit-section.no {
+  display: none;
+}
+
 .card {
   padding: var(--spacing-md);
   display: flex;
@@ -130,6 +134,11 @@ html {
   background-color: var(--white);
   border-radius: 10px;
   width: 100%;
+  box-shadow: 0 0 10px rgb(160, 160, 160);
+}
+
+.card.no {
+  display: none;
 }
 
 .personal-card {
@@ -250,6 +259,7 @@ textarea {
   min-width: calc(2550px * 0.3);
   min-height: calc(3300px * 0.3);
   background-color: var(--white);
+  box-shadow: 0 0 10px rgb(160, 160, 160);
 }
 
 /* CV TOP */

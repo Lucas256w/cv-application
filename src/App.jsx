@@ -250,9 +250,27 @@ function App() {
     });
   };
 
+  const [editDisplay, setEditDisplay] = useState("edit-section");
+  const [showEdit, setShowEditDisplay] = useState("card no");
+  const handleEditDisplay = () => {
+    if (editDisplay == "edit-section") {
+      setShowEditDisplay("card");
+      setEditDisplay("edit-section no");
+    } else {
+      setEditDisplay("edit-section");
+      setShowEditDisplay("card no");
+    }
+  };
+
   return (
     <>
-      <div className="edit-section">
+      <div className={editDisplay}>
+        <div className="card">
+          <button onClick={handleEditDisplay} className="add-new-btn">
+            Hide edit
+          </button>
+        </div>
+
         <PersonalEdit
           personalInfo={personalInfo}
           handlePersonalInfoChange={handlePersonalInfoChange}
@@ -306,14 +324,28 @@ function App() {
             personalInfo={personalInfo}
           />
         </div>
-        <div style={{ width: "auto", marginTop: "16px" }} className="card">
-          <button
-            onClick={clearContent}
-            style={{ color: "#A91E15", fontWeight: "600" }}
-            className="add-new-btn"
-          >
-            Clear Content
-          </button>
+        <div
+          style={{
+            display: "flex",
+            width: "auto",
+            marginTop: "16px",
+            gap: "10px",
+          }}
+        >
+          <div style={{ width: "auto" }} className={showEdit}>
+            <button onClick={handleEditDisplay} className="add-new-btn">
+              Show edit
+            </button>
+          </div>
+          <div style={{ width: "auto" }} className="card">
+            <button
+              onClick={clearContent}
+              style={{ color: "#A91E15", fontWeight: "600" }}
+              className="add-new-btn"
+            >
+              Clear Content
+            </button>
+          </div>
         </div>
       </div>
     </>
