@@ -265,9 +265,23 @@ function App() {
   return (
     <>
       <div className={editDisplay}>
-        <div className="card">
+        <div
+          className="card"
+          style={{
+            flexDirection: "row",
+            justifyContent: "center",
+            gap: "10px",
+          }}
+        >
           <button onClick={handleEditDisplay} className="add-new-btn">
             Hide edit
+          </button>
+          <button
+            onClick={clearContent}
+            style={{ color: "#A91E15", fontWeight: "600" }}
+            className="add-new-btn"
+          >
+            Clear Content
           </button>
         </div>
 
@@ -315,6 +329,15 @@ function App() {
         />
       </div>
       <div className="cv-display-section">
+        <div
+          style={{ width: "auto", marginBottom: "16px" }}
+          className={showEdit}
+        >
+          <button onClick={handleEditDisplay} className="add-new-btn">
+            Show edit
+          </button>
+        </div>
+
         <div className="paper">
           <CVtop personalInfo={personalInfo} />
           <CVbottom
@@ -323,29 +346,6 @@ function App() {
             selectedImage={selectedImage}
             personalInfo={personalInfo}
           />
-        </div>
-        <div
-          style={{
-            display: "flex",
-            width: "auto",
-            marginTop: "16px",
-            gap: "10px",
-          }}
-        >
-          <div style={{ width: "auto" }} className={showEdit}>
-            <button onClick={handleEditDisplay} className="add-new-btn">
-              Show edit
-            </button>
-          </div>
-          <div style={{ width: "auto" }} className="card">
-            <button
-              onClick={clearContent}
-              style={{ color: "#A91E15", fontWeight: "600" }}
-              className="add-new-btn"
-            >
-              Clear Content
-            </button>
-          </div>
         </div>
       </div>
     </>

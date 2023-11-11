@@ -106,10 +106,16 @@ html {
   background-color: var(--gray);
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 #root {
+  flex: 1;
   font-family: "Poppins", sans-serif;
   color: var(--black);
-  display: flex;
+  display: grid;
   justify-content: center;
 }
 
@@ -256,8 +262,8 @@ textarea {
   overflow: hidden;
   max-width: calc(2550px * 0.3);
   max-height: calc(3300px * 0.3);
-  min-width: calc(2550px * 0.3);
-  min-height: calc(3300px * 0.3);
+  /* min-width: calc(2550px * 0.3);
+  min-height: calc(3300px * 0.3); */
   background-color: var(--white);
   box-shadow: 0 0 10px rgb(160, 160, 160);
 }
@@ -386,4 +392,14 @@ textarea {
 .work-name,
 .work-location {
   font-size: 0.8rem;
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  padding: var(--spacing-md);
+  background-color: var(--black);
+  color: var(--white);
 }
