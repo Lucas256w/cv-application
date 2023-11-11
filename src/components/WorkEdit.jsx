@@ -1,3 +1,6 @@
+import Edit from "../assets/edit.svg";
+import Delete from "../assets/delete.svg";
+
 const WorkEdit = ({
   workFormVisible,
   toggleWorkForm,
@@ -88,12 +91,12 @@ const WorkEdit = ({
               <div>{work.name}</div>
               <img
                 className="list-edits-icon"
-                src="./src/assets/edit.svg"
+                src={Edit}
                 onClick={() => editWorks(index)}
               />
               <img
                 className="list-edits-icon"
-                src="./src/assets/delete.svg"
+                src={Delete}
                 onClick={() => deleteWorks(index)}
               />
             </div>

@@ -6,14 +6,13 @@ import CVtop from "./components/CV/CVtop";
 import CVbottom from "./components/CV/CVbottom";
 import exampleData from "./example-data";
 import { v4 as uuidv4 } from "uuid";
+import Profile from "./assets/placeholder-profile.png";
 import "./App.css";
 
 function App() {
   const [personalInfo, setPersonalInfo] = useState(exampleData.personalInfo);
 
-  const [selectedImage, setSelectedImage] = useState(
-    "./src/assets/placeholder-profile.png",
-  );
+  const [selectedImage, setSelectedImage] = useState(Profile);
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     setSelectedImage(URL.createObjectURL(file));

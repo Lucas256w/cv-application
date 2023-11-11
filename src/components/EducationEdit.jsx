@@ -1,3 +1,6 @@
+import Edit from "../assets/edit.svg";
+import Delete from "../assets/delete.svg";
+
 const EducationEdit = ({
   educationFormVisible,
   toggleEducationForm,
@@ -80,12 +83,12 @@ const EducationEdit = ({
               <div>{education.name}</div>
               <img
                 className="list-edits-icon"
-                src="./src/assets/edit.svg"
+                src={Edit}
                 onClick={() => editEducations(index)}
               />
               <img
                 className="list-edits-icon"
-                src="./src/assets/delete.svg"
+                src={Delete}
                 onClick={() => deleteEducations(index)}
               />
             </div>

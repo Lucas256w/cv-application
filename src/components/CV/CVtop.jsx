@@ -1,3 +1,8 @@
+import PhoneSvg from "../../assets/phone.svg";
+import EmailSvg from "../../assets/email.svg";
+import LinkedinSvg from "../../assets/linkedin.svg";
+import AddressSvg from "../../assets/address.svg";
+
 const ContactInfo = ({ src, alt, section, info }) => {
   return (
     <div className="contact">
@@ -15,25 +20,25 @@ const CVtop = ({ personalInfo }) => {
     <div className="paper-top">
       <div className="contact-container">
         <ContactInfo
-          src="./src/assets/phone.svg"
+          src={PhoneSvg}
           alt="phone icon"
           section="PHONE"
           info={personalInfo.number}
         />
         <ContactInfo
-          src="./src/assets/email.svg"
+          src={EmailSvg}
           alt="email icon"
           section="EMAIL"
           info={personalInfo.email}
         />
         <ContactInfo
-          src="./src/assets/linkedin.svg"
+          src={LinkedinSvg}
           alt="linkedin icon"
           section="LINKEDIN"
           info={personalInfo.linkedin}
         />
         <ContactInfo
-          src="./src/assets/address.svg"
+          src={AddressSvg}
           alt="address icon"
           section="ADDRESS"
           info={personalInfo.address}
