@@ -88,12 +88,12 @@ const WorkEdit = ({
               <div>{work.name}</div>
               <img
                 className="list-edits-icon"
-                src="../src/assets/edit.svg"
+                src="./src/assets/edit.svg"
                 onClick={() => editWorks(index)}
               />
               <img
                 className="list-edits-icon"
-                src="../src/assets/delete.svg"
+                src="./src/assets/delete.svg"
                 onClick={() => deleteWorks(index)}
               />
             </div>

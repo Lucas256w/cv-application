@@ -12,7 +12,7 @@ function App() {
   const [personalInfo, setPersonalInfo] = useState(exampleData.personalInfo);
 
   const [selectedImage, setSelectedImage] = useState(
-    "../src/assets/placeholder-profile.png",
+    "./src/assets/placeholder-profile.png",
   );
   const handleImageUpload = (e) => {
     const file = e.target.files[0];

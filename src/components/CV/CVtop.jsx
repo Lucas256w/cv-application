@@ -15,25 +15,25 @@ const CVtop = ({ personalInfo }) => {
     <div className="paper-top">
       <div className="contact-container">
         <ContactInfo
-          src="../src/assets/phone.svg"
+          src="./src/assets/phone.svg"
           alt="phone icon"
           section="PHONE"
           info={personalInfo.number}
         />
         <ContactInfo
-          src="../src/assets/email.svg"
+          src="./src/assets/email.svg"
           alt="email icon"
           section="EMAIL"
           info={personalInfo.email}
         />
         <ContactInfo
-          src="../src/assets/linkedin.svg"
+          src="./src/assets/linkedin.svg"
           alt="linkedin icon"
           section="LINKEDIN"
           info={personalInfo.linkedin}
         />
         <ContactInfo
-          src="../src/assets/address.svg"
+          src="./src/assets/address.svg"
           alt="address icon"
           section="ADDRESS"
           info={personalInfo.address}

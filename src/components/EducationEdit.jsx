@@ -80,12 +80,12 @@ const EducationEdit = ({
               <div>{education.name}</div>
               <img
                 className="list-edits-icon"
-                src="../src/assets/edit.svg"
+                src="./src/assets/edit.svg"
                 onClick={() => editEducations(index)}
               />
               <img
                 className="list-edits-icon"
-                src="../src/assets/delete.svg"
+                src="./src/assets/delete.svg"
                 onClick={() => deleteEducations(index)}
               />
             </div>
